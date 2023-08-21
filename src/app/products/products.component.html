@@ -1,0 +1,37 @@
+<div class="container text-center mt-5">
+    <h1 class="mb-3">{{StoreName | uppercase}}</h1>
+    <img [src]="StoreLogo" id="imgg" class="img-fluid rounded-circle">
+    
+    <h3 *ngIf="Discount == 'No Discount' " class="mb-3">{{"We offer an explicit discount of:"+ Discount }}</h3>
+</div>
+
+    <ul *ngFor="let item of CategoryList">
+        <li>{{"ID : "+item?.ID + " , Name : " + item?.Name}}</li>
+    </ul>
+    <br>
+
+    <ng-template #elseblock class="container">
+        <div class="divtable" >
+            <table class="ttable" class="table table-striped">
+                <Tr *ngFor="let i of ProductList">
+                    <td>{{ i?.ID}}</td>
+                    <td>{{ i?.Name }}</td>
+                    <td>{{ i?.Price }}</td>
+                </Tr>
+            </table>
+        </div>
+    </ng-template>
+
+    <div class="input-group mb-3">
+    <label for="ttt" class="form-label">Enter your name :  </label>
+    <input type="text" name="ttt" [(ngModel)]="ClientName" #inval ></div>
+    <br>
+
+    <button (click)="toggletable()" class="btn btn-primary mr-2">Buy</button>
+    <br>
+
+    <div *ngIf="IsPurshased==true ;else elseblock" class="display-5">
+        <p>{{"Thanks for purchasing from our store " + inval.value }}</p>
+    </div>
+
+    <button (click)="rendervalue()" class="btn btn-primary mr-2">Access rendervalues</button>

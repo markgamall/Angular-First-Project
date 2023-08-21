@@ -1,0 +1,19 @@
+<ul class="list-group">
+    <li *ngFor="let user of objuser" class="list-group-item">
+      <p  >ID: {{ user.id }}</p>
+      <p>Name: {{ user.name }}</p>
+      <p>Username: {{ user.username }}</p>
+      <p>Email: {{ user.email }}</p>
+      <p>Street: {{ user.address.street }}</p>
+      <p>Suite: {{ user.address.suite }}</p>
+      <p>City: {{ user.address.city }}</p>
+      <p>Zip Code: {{ user.address.zipcode }}</p>
+      <p>Lat: {{ user.address.geo.lat }}</p>
+      <p>Long: {{ user.address.geo.lng }}</p>
+      <p>Phone: {{ user.phone }}</p>
+      <p>Website: {{ user.website }}</p>
+      <p>Company Name: {{ user.company.name }}</p>
+      <p>Catch Phrase: {{ user.company.catchPhrase }}</p>
+      <p>Bs: {{ user.company.bs }}</p>
+    </li>
+  </ul>
