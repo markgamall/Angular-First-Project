@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <form #formreg="ngForm" (ngSubmit)="submitForm()">
+            <div class="form-group">
+                <label class="form-label"> User Name: </label>
+                <input type="text" class="form-control" [class.is-invalid]="name.touched && name.invalid" required
+                    #name="ngModel" name="userName" [(ngModel)]="user.name" pattern="[A-Za-z]+">
+                <div *ngIf="name.errors && (name.invalid || name.touched)" class="invalid-feedback">
+                    <div *ngIf="name.errors['required']">
+                        Please enter your user name
+                    </div>
+                    <div *ngIf="name.errors['pattern']">
+                        User name must contain only capital and small characters.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label"> E-mail: </label>
+                <input type="email" class="form-control" [class.is-invalid]="email.touched && email.invalid" required
+                    #email="ngModel" name="email" [(ngModel)]="user.email">
+                <div *ngIf="email.errors && (email.invalid || email.touched)" class="invalid-feedback">
+                    <div *ngIf="email.errors['required']">
+                        Please enter your e-mail
+                    </div>
+                    <div *ngIf="email.errors['email']">
+                        email is invalid.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="form-label"> Password: </label>
+                <input type="password" class="form-control" [class.is-invalid]="password.touched && password.invalid"
+                    required #password="ngModel" name="password" [(ngModel)]="user.password">
+                <small *ngIf="password.touched && password.invalid" style="color: red;">Please enter your
+                    password</small>
+
+            </div>
+
+            <div class="form-group">
+                <label class="form-label"> Confirm Password: </label>
+                <input type="password" class="form-control"
+                    [class.is-invalid]="confirmpassword.touched && confirmpassword.invalid" required
+                    #confirmpassword="ngModel" name="confirmPassword" [(ngModel)]="user.confirmpassword">
+                <small *ngIf="confirmpassword.touched && confirmpassword.invalid" style="color: red;">Please confirm
+                    your password</small>
+
+            </div>
+
+            <div class="form-group">
+                <label class="form-label"> Where did you hear about us : </label>
+                <select class="custom-select" required [(ngModel)]="user.selected" #selected="ngModel" name="selected"
+                    [class.is-invalid]="selected.touched && selected.invalid">
+                    <!-- <option value="" disabled selected>Select an option</option> -->
+                    <option *ngFor="let i of social">{{ i }}</option>
+                </select>
+                <small *ngIf="selected.touched && selected.invalid" style="color: red;">Please select an option</small>
+
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit" [disabled]="formreg.invalid"
+                    [ngClass]="{ 'btn-success': formreg.valid, 'btn-danger': formreg.invalid }">Register</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

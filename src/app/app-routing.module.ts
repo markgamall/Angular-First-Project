@@ -6,6 +6,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './homee/home.component';
 import { UserComponentComponent } from './user-component/user-component.component';
 import { PostsComponent } from './postss/posts.component';
+import { RegistercompComponent } from './registercomp/registercomp.component';
+import { LogincompComponent } from './logincomp/logincomp.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/home', pathMatch:'full'},
@@ -13,6 +15,8 @@ const routes: Routes = [
 {path:'products',component:ProductsComponent},
 {path:'user',component:UserComponentComponent},
 {path:'post',component:PostsComponent},
+{path:'register',component:RegistercompComponent},
+{path:'login',component:LogincompComponent},
 {path:'**',component:PageNotFoundComponent},
 ];
 
@@ -21,4 +25,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingcomponents =[HomeComponent,ProductsComponent,AppComponent,UserComponentComponent]
+export const routingcomponents =[HomeComponent,ProductsComponent,AppComponent,UserComponentComponent,RegistercompComponent,LogincompComponent]

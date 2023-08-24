@@ -11,6 +11,8 @@ import { HomeComponent } from './homee/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserComponentComponent } from './user-component/user-component.component';
 import { PostsComponent } from './postss/posts.component';
+import { RegistercompComponent } from './registercomp/registercomp.component';
+import { LogincompComponent } from './logincomp/logincomp.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { PostsComponent } from './postss/posts.component';
     HomeComponent,
     UserComponentComponent,
     PostsComponent,
+    RegistercompComponent,
+    LogincompComponent,
   ],
   imports: [
     FormsModule,
